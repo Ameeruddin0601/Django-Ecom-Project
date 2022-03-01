@@ -1,16 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content%}
-<!-- ========================= SECTION PAGETOP ========================= -->
-<section class="section-pagetop bg">
-    <div class="container">
-        <h2 class="title-page">Our Store</h2>
-	<img src="{% static 'images/avatars/avatar1.jpg' %}" alt="">
-
-        
-    </div> <!-- container //  -->
-    </section>
-    <!-- ========================= SECTION INTRO END// ========================= -->
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
@@ -133,7 +123,7 @@
             <figure class="card card-product-grid">
                 <div class="img-wrap"> 
                     
-                    <a href="{{product.get_url}}"><img src="{{product.images.url}}"></a>
+                    <a href="{{product.get_url}}"><img src="{{product.images.url}}" height="250px" widht="300px"></a>
                     
                 </div> <!-- img-wrap.// -->
                 <figcaption class="info-wrap">

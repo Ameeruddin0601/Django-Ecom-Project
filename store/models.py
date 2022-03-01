@@ -7,6 +7,10 @@ class Category(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     description = models.TextField(max_length=500, blank=True)
 
+    class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+		
     def get_url(self):
         return reverse('products_by_category', kwargs={"category_slug": self.slug})
 
