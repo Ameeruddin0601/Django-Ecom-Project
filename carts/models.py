@@ -6,7 +6,7 @@ class Cart(models.Model):
 	date_added = models.DateField(auto_now_add=True)
 
 	def __str__(self):
-		return self.card_id
+		return self.cart_id
 
 
 class CartItem(models.Model):
