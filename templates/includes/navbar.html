@@ -1,56 +1,11 @@
 {% load static %}
-<header class="section-header">
-  {% comment %}
-  <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
-    <div class="container">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTop4"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTop4">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link"> English </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link"> USD </a>
-          </li>
-        </ul>
-        <ul class="navbar-nav">
-          <li>
-            <a href="#" class="nav-link">
-              <i class="fa fa-envelope"></i> Email
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link">
-              <i class="fa fa-phone"></i> Call us
-            </a>
-          </li>
-        </ul>
-        <!-- list-inline //  -->
-      </div>
-      <!-- navbar-collapse .// -->
-    </div>
-    <!-- container //  -->
-  </nav>
-  {% endcomment %}
-
+<header class="section-header navbar-dark bg-dark" style="box-shadow: 0 2px 10px 2px rgba(0,0,0,.5);">
   <section class="header-main border-bottom">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-2 col-md-3 col-6">
           <a href="{% url 'home'%}" class="brand-wrap" style="font-size: 25px">
-            Ecommerce {% comment %}
             <img class="logo" src="{% static './images/logo.png' %}" />
-            {% endcomment %}
           </a>
           <!-- brand-wrap.// -->
         </div>
@@ -75,7 +30,7 @@
           <!-- category-wrap.// -->
         </div>
         <!-- col.// -->
-        <a href="{% url 'store' %}" class="btn btn-outline-primary">Store</a>
+        <!-- <a href="{% url 'store' %}" class="btn btn-outline-primary">Store</a> -->
         <div class="col-lg col-md-6 col-sm-12 col">
           <form action="{% url 'search' %}" class="search" method="GET">
             <div class="input-group w-100">
@@ -83,7 +38,7 @@
                 type="text"
                 class="form-control"
                 style="width: 60%"
-                placeholder="Search"
+                placeholder="Search here..."
                 name="keyword"
               />
 
@@ -106,7 +61,7 @@
               >
               <div>
                 <a href="{% url 'logout' %}">Logout</a>
-                <span class="dark-transp"> | </span>
+                <span class="dark-transp text-white"> | </span>
                 <a href="{% url 'dashboard'%}">Dashboard</a>
               </div>
             </div>
@@ -115,7 +70,7 @@
               <small class="title text-muted">Welcome guest!</small>
               <div>
                 <a href="{% url 'login' %}">Sign in</a>
-                <span class="dark-transp"> | </span>
+                <span class="dark-transp text-white"> | </span>
                 <a href="{% url 'register' %}"> Register</a>
               </div>
             </div>

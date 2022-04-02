@@ -1,0 +1,12 @@
+.widget-header a{
+	color:  white;
+	}
+
+.widget-header a:hover{
+	color:  rgb(135,160,255);
+	}
+	
+form.search input::placeholder{
+	color: black;
+	opacity: 0.8;
+	}
