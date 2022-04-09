@@ -114,8 +114,9 @@
 
 					</div> <!-- card-body.// -->
 				</div> <!-- card.// -->
-				<div class="alert alert-danger" role="alert">
-				  <b>Please Note: </b>This is a demo website. Do not try to make real payments.
+				<div>
+					<a target="_blank" class="btn btn-primary btn-block" href="https://rzp.io/l/VetAotmxQ" onclick="sendData()">Proceed to Payment</a>
+					<!-- <b>Please Note: </b>This is a demo website. Do not try to make real payments. -->
 				</div>
 			</aside> <!-- col.// -->
 
@@ -129,5 +130,40 @@
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
 
+<script>
+	function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+const data = { orderID: '{{order.order_number}}' };
+function sendData(){
+	fetch("{% url 'payments' %}", {
+	  method: 'POST',
+	  headers: {
+		'Content-Type': 'application/json',
+		'X-CSRFToken': getCookie('csrftoken'),
+	  },
+	  body: JSON.stringify(data),
+	})
 
+	.then((response) => response.json())
+	.then((data) => {
+		window.location.href = "{% url 'order_complete' %}" + '?order_number='+data.order_number+'&payment_id='+data.transID;
+	});
+}
+
+
+</script>
 {% endblock %}
