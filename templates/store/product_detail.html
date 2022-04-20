@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
+<div class="clearfix1"></div>
 <section class="section-content padding-y bg">
   <div class="container">
     <!-- ============================ COMPONENT 1 ================================= -->
@@ -7,7 +8,7 @@
         <aside class="col-md-6">
           <article class="gallery-wrap">
             <div class="img-big-wrap">
-              <a href="#"><img src="{{single_product.images.url}}" /></a>
+              <a><img src="{{single_product.images.url}}" /></a>
             </div>
             <!-- img-big-wrap.// -->
           </article>
@@ -20,7 +21,7 @@
               <h2 class="title">{{single_product.product_name}}</h2>
 
               <div class="mb-3">
-                <var class="price h4">Rs.{{single_product.price}}/-</var>
+                <var class="h4 price">Rs.{{single_product.price}}/-</var>
               </div>
 
               <p>{{single_product.description}}</p>
@@ -38,9 +39,7 @@
                     {% endfor %}
                   </select>
                 </div>
-              </div>
-              <!-- row.// -->
-              <div class="row">
+
                 <div class="item-option-select">
                   <h6>Select Size</h6>
                   <select name="size" class="form-control">
@@ -51,19 +50,19 @@
                     </option>
                     {% endfor %}
                   </select>
-                </div>
+                </div>                
               </div>
-              <!-- row.// -->
+              
               <hr />
               {% if single_product.stock <= 0 %}
               <a href="./product-detail.html" class="btn btn-primary disabled">
                 <span class="text">Out Of Stock</span>
-                <i class="fas fa-shopping-cart"></i>
+                <i class="fa fa-shopping-cart"></i>
               </a>
               {% else %}
               <button type="submit" class="btn btn-primary">
                 <span class="text">Add to cart</span>
-                <i class="fas fa-shopping-cart"></i>
+                <i class="fa fa-shopping-cart"></i>
               </button>
               {% endif %}
             </article>

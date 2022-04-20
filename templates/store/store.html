@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content%}
+<div class="clearfix1"></div>
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
     <div class="container">
@@ -91,25 +92,25 @@
                       <label>Min</label>
                       <!-- <input class="form-control" placeholder="$0" type="number"> -->
                           <select class="mr-2 form-control">
-                            <option value="0">$0</option>
-                            <option value="50">$50</option>
-                            <option value="100">$100</option>
-                            <option value="150">$150</option>
-                            <option value="200">$200</option>
-                            <option value="500">$500</option>
-                            <option value="1000">$1000</option>
+                            <option value="0">Rs.0/-</option>
+                            <option value="50">Rs.50/-</option>
+                            <option value="100">Rs.100/-</option>
+                            <option value="150">Rs.150/-</option>
+                            <option value="200">Rs.200/-</option>
+                            <option value="500">Rs.500/-</option>
+                            <option value="1000">Rs.1000/-</option>
                         </select>
                     </div>
                     <div class="form-group text-right col-md-6">
                       <label>Max</label>
                           <select class="mr-2 form-control">
-                            <option value="50">$50</option>
-                            <option value="100">$100</option>
-                            <option value="150">$150</option>
-                            <option value="200">$200</option>
-                            <option value="500">$500</option>
-                            <option value="1000">$1000</option>
-                            <option value="2000">$2000+</option>
+                            <option value="50">Rs.50/-</option>
+                            <option value="100">Rs.100/-</option>
+                            <option value="150">Rs.150/-</option>
+                            <option value="200">Rs.200/-</option>
+                            <option value="500">Rs.500/-</option>
+                            <option value="1000">Rs.1000/-</option>
+                            <option value="2000">Rs.2000+</option>
                         </select>
                     </div>
                     </div> <!-- form-row.// -->
@@ -130,7 +131,7 @@
             </div>
     </header><!-- sect-heading -->
     
-    <div class="row">
+    {% comment %} <div class="row">
 		{% if products  %}
         {% for product in products %}
         <div class="col-md-4">
@@ -157,8 +158,80 @@
 			<h5>No Result Found</h5>
 		</div>
 		{% endif %}
-    </div> <!-- row end.// -->
-    
+    </div> <!-- row end.// --> {% endcomment %}
+    <div class="tab-content">
+        <div id="all" class="tab-pane fade in active show">
+          <div class="item text-center row">
+            {% for product in products %}
+            <div class="col-md-3 col-xs-12">
+              <div
+                class="product-miniature js-product-miniature item-one first-item"
+              >
+                <div class="thumbnail-container">
+                  <a href="{{product.get_url}}">
+                    <img
+                      class="img-fluid"
+                      src="{{ product.images.url }}"
+                      alt="img"
+                    />
+                  </a>
+                  <div class="product-flags discount">-10%</div>
+                  <div class="highlighted-informations">
+                    <div class="variant-links">
+                      <a href="#" class="color beige" title="Beige"></a>
+                      <a href="#" class="color orange" title="Orange"></a>
+                      <a href="#" class="color green" title="Green"></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-description">
+                  <div class="product-groups">
+                    <div class="product-title">
+                      <a href="{{product.get_url}}">{{ product.product_name }}</a>
+                    </div>
+                    <div class="rating">
+                      <div class="star-content">
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                      </div>
+                    </div>
+                    <div class="product-group-price">
+                      <div class="product-price-and-shipping">
+                        <span class="price">Rs.{{ product.price }}/-</span>
+                        <del class="regular-price">Rs.{{ product.price }}/-</del>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-buttons d-flex justify-content-center">
+                    <form action="{% url 'add_cart' product.id %}" method="POST" class="formAddToCart">
+                      {% csrf_token %}
+                      <input type="hidden" name="token" />
+                      <button
+                        type="submit"
+                        class="add-to-cart"
+                        data-button-action="add-to-cart"
+                      >
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                      </button>
+                    </form>                    
+                    <a
+                      href="{{product.get_url}}"
+                      class="quick-view hidden-sm-down"
+                      data-link-action="quickview"
+                    >
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     
     <nav class="mt-4" aria-label="Page navigation sample">
 		{% if products.has_other_pages %}

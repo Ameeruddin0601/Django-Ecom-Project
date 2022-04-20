@@ -1,0 +1,196 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.btn-prime{
+    margin-left: 117px;
+    outline: none;
+    border: none;
+    border-radius: 5rem;
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-prime::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    background: #4778ff;
+    color: #fff;
+    height: 100%;
+    width: 0%;
+    transition: .2s;
+    z-index: -1;
+}
+
+.btn-prime:hover::before{
+    width: 100%;
+}
+
+#hero{
+    /* background: linear-gradient(0deg, rgba(0,0,0,.6),rgba(0,0,0,.6)); */
+    position: relative;
+    overflow-x: hidden;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+.content .hero-tag-1{
+    margin-left: 195px;
+    font-size: 3rem;
+    font-weight: bolder;
+    text-shadow: .1rem .1rem .3rem #333;
+    color: #4778ff;
+}
+
+.content .hero-tag-2{
+    margin-left: 195px;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-shadow: .1rem .1rem .3rem #333;
+    color: #fff;
+}
+
+.content .hero-tag-p{
+    margin-left: 195px;
+    font-size: 1rem;
+    color: rgb(24, 24, 24);
+}
+
+.content .btn-prime{
+    margin-left: 187px;
+    height: 4rem;
+    width: 14rem;
+    background: #fff;
+}
+
+.fa-times{
+    transform: skew(-180deg) rotate(-180deg);
+}
+
+.img-container{
+    position: absolute;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+}
+
+.img-container .imge{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.img-container .img1{
+    display: block;
+}
+
+.controls{
+    position: absolute;
+    bottom: 14%; left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.controls .dots{
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    background: #4778ff;
+    margin: 0 1rem;
+}
+
+.controls .dots:hover{
+    background: #fff;
+}
+
+.policy-home{
+    display: block;
+    margin-left: 70px;
+    margin-right: 30px;
+    padding: 0;
+    width: 50%;
+}
+
+.mycart:hover{
+    color: #fff;
+    background-color: #4778ff;
+    border-radius: 50%;
+    padding: 7px;
+}
+
+.first-item{
+    transition: transform .4s;
+}
+
+.first-item:hover{
+    transform: scale(1.1);
+}
+
+.thumbnail-container{
+    border: rgb(190, 190, 190) .5px solid;
+    border-radius: 10px !important;
+    padding: 5px;
+}
+
+.thumbnail-container:hover{
+    border-color: #4778ff;
+}
+
+.novShowMore{
+    background-color: #333;
+    border-radius: 20px;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: transform .4s;
+}
+.novShowMore:hover{
+    background-color: #4778ff;
+    color: #fff;
+}
+
+.content-showmore{
+    margin: 20px !important;
+}
+
+.clearfix1{
+    height: 110px;
+}
+
+.content-body .title{
+    font-weight: 700;
+}
+
+.price{
+    color: #FF5A19 !important;
+    font-weight: 600 !important;
+}
+
+.img-big-wrap img{
+    transition: transform .4s;
+}
+
+.img-big-wrap img:hover{
+    transform: scale(1.1);
+}
+
+.item-option-select{
+    margin-left: 20px;
+    padding-right: 55px;
+}
+
+.qty{
+    margin-left: 20px;
+}

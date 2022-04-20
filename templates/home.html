@@ -1,76 +1,129 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content%}
+{% extends 'base.html' %} {% load static %} {% block content%} {% include 'includes/alerts.html' %}
+<section id="hero" class="container-fluid">
+  <div class="row min-vh-100 align-items-center">
+    <div class="content">
+      <h1 class="hero-tag-1">Trend Clothings</h1>
+      <h2 class="hero-tag-2">Modern Accesories</h2>
+      <p class="hero-tag-p">Now at 10% Off</p>
+      <a href="#special"><button class="btn-prime">Buy Now</button></a>
+    </div>
+    <div class="img-container">
+      <img
+        src="{% static 'images/banners/cover1.png' %}"
+        class="imge img1"
+        alt="cover"
+      />
+      <img
+        src="{% static 'images/banners/cover2.png' %}"
+        class="imge img2"
+        alt="cover"
+      />
+      <img
+        src="{% static 'images/banners/cover3.png' %}"
+        class="imge img3"
+        alt="cover"
+      />
+    </div>
 
-{% include 'includes/alerts.html' %}
-<section class="section-intro padding-y-sm">
-	<div class="container">
-	
-	<!-- <div class="intro-banner-wrap">
-		<img src="{% static 'images/banners/cover.jpg' %}" class="img-fluid rounded">
-	</div> -->
-	<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-		  </div>
-		<div class="carousel-inner rounded">
-		  <div class="carousel-item active rounded">
-			<img src="{% static '/images/carausel/slide1.png' %}" class="d-block w-100 rounded" alt="..." height="500">
-			<div class="carousel-caption d-none d-md-block">
-			  <h5>First slide label</h5>
-			  <p>Some representative placeholder content for the first slide.</p>
-			</div>
-		  </div>
-		  <div class="carousel-item">
-			<img src="{% static '/images/carausel/slide2.png' %}" class="d-block w-100 rounded" alt="..." height="500">
-			<div class="carousel-caption d-none d-md-block">
-			  <h5>Second slide label</h5>
-			  <p>Some representative placeholder content for the second slide.</p>
-			</div>
-		  </div>
-		  <div class="carousel-item">
-			<img src="{% static '/images/carausel/slide3.jpg' %}" class="d-block w-100 rounded" alt="..." height="500">
-			<div class="carousel-caption d-none d-md-block">
-			  <h5>Third slide label</h5>
-			  <p>Some representative placeholder content for the third slide.</p>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div> <!-- container //  -->
-	</section>
-
-<section class="section-name padding-y-sm">
-<div class="container">
-
-<header class="section-heading">
-	<a href="{% url 'store'%}" class="btn btn-outline-primary float-right">See all</a>
-	<h3 class="section-title">Popular products</h3>
-</header>
-
-
-	
-<div class="row">
-	{% for product in products %}
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="{{product.get_url}}" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
-			<figcaption class="info-wrap">
-				<a href="{{product.get_url}}" class="title">{{ product.product_name }}</a>
-				<div class="price mt-1">Rs.{{ product.price }}/-</div>
-			</figcaption>
-		</div>
-	</div> 
-	{% endfor %}
-</div> 
-
-</div>
+    <div class="controls">
+      <div class="dots dot1"></div>
+      <div class="dots dot2"></div>
+      <div class="dots dot3"></div>
+    </div>
+  </div>
 </section>
 
-
-
-
+<section class="section-name padding-y-sm">
+  <div class="container">
+    <header class="section-heading">
+      <a href="{% url 'store'%}" class="btn btn-outline-primary float-right"
+        >See all</a
+      >
+      <h3 class="section-title">Popular products</h3>
+    </header>
+    <div class="tab-content">
+      <div id="all" class="tab-pane fade in active show">
+        <div class="item text-center row">
+          {% for product in products %}
+          <div class="col-md-3 col-xs-12">
+            <div
+              class="product-miniature js-product-miniature item-one first-item"
+            >
+              <div class="thumbnail-container">
+                <a href="{{product.get_url}}">
+                  <img
+                    class="img-fluid"
+                    src="{{ product.images.url }}"
+                    alt="img"
+                  />
+                </a>
+                <div class="product-flags discount">-10%</div>
+                <div class="highlighted-informations">
+                  <div class="variant-links">
+                    <a href="#" class="color beige" title="Beige"></a>
+                    <a href="#" class="color orange" title="Orange"></a>
+                    <a href="#" class="color green" title="Green"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-description">
+                <div class="product-groups">
+                  <div class="product-title">
+                    <a href="{{product.get_url}}">{{ product.product_name }}</a>
+                  </div>
+                  <div class="rating">
+                    <div class="star-content">
+                      <div class="star"></div>
+                      <div class="star"></div>
+                      <div class="star"></div>
+                      <div class="star"></div>
+                      <div class="star"></div>
+                    </div>
+                  </div>
+                  <div class="product-group-price">
+                    <div class="product-price-and-shipping">
+                      <span class="price">Rs.{{ product.price }}/-</span>
+                      <del class="regular-price">Rs.{{ product.price }}/-</del>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-buttons d-flex justify-content-center">
+                  <form form action="{% url 'add_cart' product.id %}" method="POST" class="formAddToCart">
+                    {% csrf_token %}
+                    <input type="hidden" name="token" />
+                    <button
+                      type="submit"
+                      class="add-to-cart"
+                      data-button-action="add-to-cart"
+                    >
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </button>
+                  </form>          
+                  <a
+                    href="{{product.get_url}}"
+                    class="quick-view hidden-sm-down"
+                    data-link-action="quickview"
+                  >
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="content-showmore text-center has-showmore">
+          <a
+            class="novShowMore"
+			href="{% url 'store'%}"
+          >
+            <span>See More Products</span>
+          </a>
+          <input type="hidden" value="0" class="count_showmore" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
