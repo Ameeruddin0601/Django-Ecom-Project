@@ -18,4 +18,4 @@ A Django based e-commerce website made as a mini-project for Sem VI of B-Tech En
 - [Ameeruddin Baghdadi](https://github.com/ameeruddin0601)
 - [Qureshi Usman](https://github.com/q-usman)
 - [Raquib Khan](https://github.com/raquib01)
-- [Muhammad Huzaifa Shaikh](https://github.com/0xHuz)
+- [0xHuz](https://github.com/0xHuz)
