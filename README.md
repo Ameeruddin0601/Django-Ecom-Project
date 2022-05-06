@@ -11,7 +11,7 @@ A Django based e-commerce website made as a mini-project for Sem VI of B-Tech En
 
 - Backend
   - Django Web Framework
-  - MySQL
+  - SQLite
 
 ## Collaborators
 
