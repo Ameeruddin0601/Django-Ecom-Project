@@ -21,7 +21,7 @@
               <h2 class="title">{{single_product.product_name}}</h2>
 
               <div class="mb-3">
-                <var class="h4 price">Rs.{{single_product.price}}/-</var>
+                <var class="h4 price">₹{{single_product.price}}/-</var>
               </div>
 
               <p>{{single_product.description}}</p>
@@ -50,9 +50,9 @@
                     </option>
                     {% endfor %}
                   </select>
-                </div>                
+                </div>
               </div>
-              
+
               <hr />
               {% if single_product.stock <= 0 %}
               <a href="./product-detail.html" class="btn btn-primary disabled">

@@ -1,268 +1,305 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content%}
+{% extends 'base.html' %} {% load static %} {% block content%}
 <div class="clearfix1"></div>
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
-    <div class="container">
-		{% if 'search' in request.path %}
-			<h2 class="title-page">Search Result</h2>
-		{% else %}
-        	<h2 class="title-page">Our Store</h2>
-		{% endif %}
-        
-    </div> <!-- container //  -->
-    </section>
-    <!-- ========================= SECTION INTRO END// ========================= -->
+  <div class="container">
+    {% if 'search' in request.path %}
+    <h2 class="title-page">Search Result</h2>
+    {% else %}
+    <h2 class="title-page">Our Store</h2>
+    {% endif %}
+  </div>
+  <!-- container //  -->
+</section>
+<!-- ========================= SECTION INTRO END// ========================= -->
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
-    <div class="container">
-    
+  <div class="container">
     <div class="row">
-        <aside class="col-md-3">
-            
-    <div class="card">
-        <article class="filter-group">
+      <aside class="col-md-3">
+        <div class="card">
+          <article class="filter-group">
             <header class="card-header">
-                <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
-                    <i class="icon-control fa fa-chevron-down"></i>
-                    <h6 class="title">Categories</h6>
-                </a>
+              <a
+                href="#"
+                data-toggle="collapse"
+                data-target="#collapse_1"
+                aria-expanded="true"
+                class=""
+              >
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">Categories</h6>
+              </a>
             </header>
             <div class="filter-content collapse show" id="collapse_1" style="">
-                
-                <div class="card-body">
-                    
-                    <ul class="list-menu">
-                        <li><a href="{% url 'store' %}">All Products</a></li>
-                        {% for category in links %}
-                        <li><a href="{{category.get_url}}">{{category.category_name}}</a></li>
-                        {% endfor %}
-                    </ul>
-    
-                </div> <!-- card-body.// -->
-                
+              <div class="card-body">
+                <ul class="list-menu">
+                  <li><a href="{% url 'store' %}">All Products</a></li>
+                  {% for category in links %}
+                  <li>
+                    <a href="{{category.get_url}}"
+                      >{{category.category_name}}</a
+                    >
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <!-- card-body.// -->
             </div>
-        </article> <!-- filter-group  .// -->
-        <article class="filter-group">
+          </article>
+          <!-- filter-group  .// -->
+          <article class="filter-group">
             <header class="card-header">
-                <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
-                    <i class="icon-control fa fa-chevron-down"></i>
-                    <h6 class="title">Sizes </h6>
-                </a>
+              <a
+                href="#"
+                data-toggle="collapse"
+                data-target="#collapse_4"
+                aria-expanded="true"
+                class=""
+              >
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">Sizes</h6>
+              </a>
             </header>
             <div class="filter-content collapse show" id="collapse_4" style="">
-                <div class="card-body">
-                  <label class="checkbox-btn">
-                    <input type="checkbox">
-                    <span class="btn btn-light"> XS </span>
-                  </label>
-    
-                  <label class="checkbox-btn">
-                    <input type="checkbox">
-                    <span class="btn btn-light"> SM </span>
-                  </label>
-    
-                  <label class="checkbox-btn">
-                    <input type="checkbox">
-                    <span class="btn btn-light"> LG </span>
-                  </label>
-    
-                  <label class="checkbox-btn">
-                    <input type="checkbox">
-                    <span class="btn btn-light"> XXL </span>
-                  </label>
-            </div><!-- card-body.// -->
+              <div class="card-body">
+                <label class="checkbox-btn">
+                  <input type="checkbox" />
+                  <span class="btn btn-light"> XS </span>
+                </label>
+
+                <label class="checkbox-btn">
+                  <input type="checkbox" />
+                  <span class="btn btn-light"> SM </span>
+                </label>
+
+                <label class="checkbox-btn">
+                  <input type="checkbox" />
+                  <span class="btn btn-light"> LG </span>
+                </label>
+
+                <label class="checkbox-btn">
+                  <input type="checkbox" />
+                  <span class="btn btn-light"> XXL </span>
+                </label>
+              </div>
+              <!-- card-body.// -->
             </div>
-        </article> <!-- filter-group .// -->
-        
-        <article class="filter-group">
+          </article>
+          <!-- filter-group .// -->
+
+          <article class="filter-group">
             <header class="card-header">
-                <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
-                    <i class="icon-control fa fa-chevron-down"></i>
-                    <h6 class="title">Price range </h6>
-                </a>
+              <a
+                href="#"
+                data-toggle="collapse"
+                data-target="#collapse_3"
+                aria-expanded="true"
+                class=""
+              >
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">Price range</h6>
+              </a>
             </header>
             <div class="filter-content collapse show" id="collapse_3" style="">
-                <div class="card-body">
-                    
-                    <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label>Min</label>
-                      <!-- <input class="form-control" placeholder="$0" type="number"> -->
-                          <select class="mr-2 form-control">
-                            <option value="0">Rs.0/-</option>
-                            <option value="50">Rs.50/-</option>
-                            <option value="100">Rs.100/-</option>
-                            <option value="150">Rs.150/-</option>
-                            <option value="200">Rs.200/-</option>
-                            <option value="500">Rs.500/-</option>
-                            <option value="1000">Rs.1000/-</option>
-                        </select>
-                    </div>
-                    <div class="form-group text-right col-md-6">
-                      <label>Max</label>
-                          <select class="mr-2 form-control">
-                            <option value="50">Rs.50/-</option>
-                            <option value="100">Rs.100/-</option>
-                            <option value="150">Rs.150/-</option>
-                            <option value="200">Rs.200/-</option>
-                            <option value="500">Rs.500/-</option>
-                            <option value="1000">Rs.1000/-</option>
-                            <option value="2000">Rs.2000+</option>
-                        </select>
-                    </div>
-                    </div> <!-- form-row.// -->
-                    <button class="btn btn-block btn-primary">Apply</button>
-                </div><!-- card-body.// -->
-            </div>
-        </article> <!-- filter-group .// -->
-        
-    </div> <!-- card.// -->
-    
-        </aside> <!-- col.// -->
-        <main class="col-md-9">
-    
-    <header class="border-bottom mb-4 pb-3">
-            <div class="form-inline">
-                <span class="mr-md-auto"><strong>{{product_count}}</strong> Items found </span>
-                
-            </div>
-    </header><!-- sect-heading -->
-    
-    {% comment %} <div class="row">
-		{% if products  %}
-        {% for product in products %}
-        <div class="col-md-4">
-            <figure class="card card-product-grid">
-                <div class="img-wrap"> 
-                    
-                    <a href="{{product.get_url}}"><img src="{{product.images.url}}"></a>
-                    
-                </div> <!-- img-wrap.// -->
-                <figcaption class="info-wrap">
-                    <div class="fix-height">
-                        <a href=".{{product.get_url}}" class="title">{{product.product_name}}</a>
-                        <div class="price-wrap mt-2">
-                            <span class="price">Rs.{{product.price}}/-</span>
-                        </div> <!-- price-wrap.// -->
-                    </div>
-                    <a href="{{product.get_url}}" class="btn btn-block btn-primary">View Detail</a>
-                </figcaption>
-            </figure>
-        </div> <!-- col.// -->
-        {% endfor %}
-		{% else %}
-		<div>
-			<h5>No Result Found</h5>
-		</div>
-		{% endif %}
-    </div> <!-- row end.// --> {% endcomment %}
-    <div class="tab-content">
-        <div id="all" class="tab-pane fade in active show">
-          <div class="item text-center row">
-            {% for product in products %}
-            <div class="col-md-3 col-xs-12">
-              <div
-                class="product-miniature js-product-miniature item-one first-item"
-              >
-                <div class="thumbnail-container">
-                  <a href="{{product.get_url}}">
-                    <img
-                      class="img-fluid"
-                      src="{{ product.images.url }}"
-                      alt="img"
-                    />
-                  </a>
-                  <div class="product-flags discount">-10%</div>
-                  <div class="highlighted-informations">
-                    <div class="variant-links">
-                      <a href="#" class="color beige" title="Beige"></a>
-                      <a href="#" class="color orange" title="Orange"></a>
-                      <a href="#" class="color green" title="Green"></a>
-                    </div>
+              <div class="card-body">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label>Min</label>
+                    <!-- <input class="form-control" placeholder="$0" type="number"> -->
+                    <select class="mr-2 form-control">
+                      <option value="0">₹0/-</option>
+                      <option value="50">₹50/-</option>
+                      <option value="100">₹100/-</option>
+                      <option value="150">₹150/-</option>
+                      <option value="200">₹200/-</option>
+                      <option value="500">₹500/-</option>
+                      <option value="1000">₹1000/-</option>
+                    </select>
+                  </div>
+                  <div class="form-group text-right col-md-6">
+                    <label>Max</label>
+                    <select class="mr-2 form-control">
+                      <option value="50">₹50/-</option>
+                      <option value="100">₹100/-</option>
+                      <option value="150">₹150/-</option>
+                      <option value="200">₹200/-</option>
+                      <option value="500">₹500/-</option>
+                      <option value="1000">₹1000/-</option>
+                      <option value="2000">₹2000+</option>
+                    </select>
                   </div>
                 </div>
-                <div class="product-description">
-                  <div class="product-groups">
-                    <div class="product-title">
-                      <a href="{{product.get_url}}">{{ product.product_name }}</a>
-                    </div>
-                    <div class="rating">
-                      <div class="star-content">
-                        <div class="star"></div>
-                        <div class="star"></div>
-                        <div class="star"></div>
-                        <div class="star"></div>
-                        <div class="star"></div>
-                      </div>
-                    </div>
-                    <div class="product-group-price">
-                      <div class="product-price-and-shipping">
-                        <span class="price">Rs.{{ product.price }}/-</span>
-                        <del class="regular-price">Rs.{{ product.price }}/-</del>
+                <!-- form-row.// -->
+                <button class="btn btn-block btn-primary">Apply</button>
+              </div>
+              <!-- card-body.// -->
+            </div>
+          </article>
+          <!-- filter-group .// -->
+        </div>
+        <!-- card.// -->
+      </aside>
+      <!-- col.// -->
+      <main class="col-md-9">
+        <header class="border-bottom mb-4 pb-3">
+          <div class="form-inline">
+            <span class="mr-md-auto"
+              ><strong>{{product_count}}</strong> Items found
+            </span>
+          </div>
+        </header>
+        <!-- sect-heading -->
+
+        {% comment %}
+        <div class="row">
+          {% if products %} {% for product in products %}
+          <div class="col-md-4">
+            <figure class="card card-product-grid">
+              <div class="img-wrap">
+                <a href="{{product.get_url}}"
+                  ><img src="{{product.images.url}}"
+                /></a>
+              </div>
+              <!-- img-wrap.// -->
+              <figcaption class="info-wrap">
+                <div class="fix-height">
+                  <a href=".{{product.get_url}}" class="title"
+                    >{{product.product_name}}</a
+                  >
+                  <div class="price-wrap mt-2">
+                    <span class="price">₹{{product.price}}/-</span>
+                  </div>
+                  <!-- price-wrap.// -->
+                </div>
+                <a href="{{product.get_url}}" class="btn btn-block btn-primary"
+                  >View Detail</a
+                >
+              </figcaption>
+            </figure>
+          </div>
+          <!-- col.// -->
+          {% endfor %} {% else %}
+          <div>
+            <h5>No Result Found</h5>
+          </div>
+          {% endif %}
+        </div>
+        <!-- row end.// -->
+        {% endcomment %}
+        <div class="tab-content">
+          <div id="all" class="tab-pane fade in active show">
+            <div class="item text-center row">
+              {% for product in products %}
+              <div class="col-md-3 col-xs-12">
+                <div
+                  class="product-miniature js-product-miniature item-one first-item"
+                >
+                  <div class="thumbnail-container">
+                    <a href="{{product.get_url}}">
+                      <img
+                        class="img-fluid"
+                        src="{{ product.images.url }}"
+                        alt="img"
+                      />
+                    </a>
+                    <div class="product-flags discount">-10%</div>
+                    <div class="highlighted-informations">
+                      <div class="variant-links">
+                        <a href="#" class="color beige" title="Beige"></a>
+                        <a href="#" class="color orange" title="Orange"></a>
+                        <a href="#" class="color green" title="Green"></a>
                       </div>
                     </div>
                   </div>
-                  <div class="product-buttons d-flex justify-content-center">
-                    <form action="{% url 'add_cart' product.id %}" method="POST" class="formAddToCart">
-                      {% csrf_token %}
-                      <input type="hidden" name="token" />
-                      <button
-                        type="submit"
-                        class="add-to-cart"
-                        data-button-action="add-to-cart"
+                  <div class="product-description">
+                    <div class="product-groups">
+                      <div class="product-title">
+                        <a href="{{product.get_url}}"
+                          >{{ product.product_name }}</a
+                        >
+                      </div>
+                      <div class="rating">
+                        <div class="star-content">
+                          <div class="star"></div>
+                          <div class="star"></div>
+                          <div class="star"></div>
+                          <div class="star"></div>
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="product-group-price">
+                        <div class="product-price-and-shipping">
+                          <span class="price">₹{{ product.price }}/-</span>
+                          <del class="regular-price"
+                            >₹{{ product.price }}/-</del
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-buttons d-flex justify-content-center">
+                      <form
+                        action="{% url 'add_cart' product.id %}"
+                        method="POST"
+                        class="formAddToCart"
                       >
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                      </button>
-                    </form>                    
-                    <a
-                      href="{{product.get_url}}"
-                      class="quick-view hidden-sm-down"
-                      data-link-action="quickview"
-                    >
-                      <i class="fa fa-eye" aria-hidden="true"></i>
-                    </a>
+                        {% csrf_token %}
+                        <input type="hidden" name="token" />
+                        <button
+                          type="submit"
+                          class="add-to-cart"
+                          data-button-action="add-to-cart"
+                        >
+                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </button>
+                      </form>
+                      <a
+                        href="{{product.get_url}}"
+                        class="quick-view hidden-sm-down"
+                        data-link-action="quickview"
+                      >
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
+              {% endfor %}
             </div>
-            {% endfor %}
           </div>
         </div>
-      </div>
-    
-    <nav class="mt-4" aria-label="Page navigation sample">
-		{% if products.has_other_pages %}
-      		<ul class="pagination">
-				{% if products.has_previous %}
-        			<li class="page-item"><a class="page-link" href="?page={{products.previous_page_number}}">Previous</a></li>
-				{% else %}
-					<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-				{% endif %}
-		{% for i in products.paginator.page_range %}
-				{% if products.number == i %}
-					<li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
-				{% else %}
-					<li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
-				{% endif %}
-		{% endfor %}
 
-        		{% if products.has_next %}
-        			<li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}">Next</a></li>
-				{% else %}
-					<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
-				{% endif %}
-      </ul>
-	  {% endif %}
-    </nav>
-    
-        </main> <!-- col.// -->
-    
-    </div>
-    
-    </div> <!-- container .//  -->
-    </section>
-    <!-- ========================= SECTION CONTENT END// ========================= -->
-{% endblock %}
+        <nav class="mt-4" aria-label="Page navigation sample">
+          {% if products.has_other_pages %}
+                <ul class="pagination">
+              {% if products.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{products.previous_page_number}}">Previous</a></li>
+              {% else %}
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+              {% endif %}
+          {% for i in products.paginator.page_range %}
+              {% if products.number == i %}
+                <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+              {% endif %}
+          {% endfor %}
+      
+                  {% if products.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}">Next</a></li>
+              {% else %}
+                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+              {% endif %}
+            </ul>
+          {% endif %}
+          </nav>
+          
+              </main> <!-- col.// -->
+          
+          </div>
+          
+          </div> <!-- container .//  -->
+          </section>
+          <!-- ========================= SECTION CONTENT END// ========================= -->
+      {% endblock %}

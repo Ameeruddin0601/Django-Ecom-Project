@@ -82,13 +82,18 @@
                   </div>
                   <div class="product-group-price">
                     <div class="product-price-and-shipping">
-                      <span class="price">Rs.{{ product.price }}/-</span>
-                      <del class="regular-price">Rs.{{ product.price }}/-</del>
+                      <span class="price">₹{{ product.price }}/-</span>
+                      <del class="regular-price">₹{{ product.price }}/-</del>
                     </div>
                   </div>
                 </div>
                 <div class="product-buttons d-flex justify-content-center">
-                  <form form action="{% url 'add_cart' product.id %}" method="POST" class="formAddToCart">
+                  <form
+                    form
+                    action="{% url 'add_cart' product.id %}"
+                    method="POST"
+                    class="formAddToCart"
+                  >
                     {% csrf_token %}
                     <input type="hidden" name="token" />
                     <button
@@ -98,7 +103,7 @@
                     >
                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </button>
-                  </form>          
+                  </form>
                   <a
                     href="{{product.get_url}}"
                     class="quick-view hidden-sm-down"
@@ -113,10 +118,7 @@
           {% endfor %}
         </div>
         <div class="content-showmore text-center has-showmore">
-          <a
-            class="novShowMore"
-			href="{% url 'store'%}"
-          >
+          <a class="novShowMore" href="{% url 'store'%}">
             <span>See More Products</span>
           </a>
           <input type="hidden" value="0" class="count_showmore" />
